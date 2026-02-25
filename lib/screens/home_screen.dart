@@ -4,37 +4,45 @@ import '../controllers/expense_controller.dart';
 import '../widgets/responsive_container.dart';
 
 class HomeScreen extends StatelessWidget {
-  final controller = Get.find<ExpenseController>();
-
   HomeScreen({super.key});
+
+  final controller = Get.find<ExpenseController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Monthly Expenses"),
+        title: const Text("Monthly Expenses Tracker"),
         actions: [
           IconButton(
-            onPressed: () => Get.toNamed('/stats'),
             icon: const Icon(Icons.bar_chart),
+            onPressed: () => Get.toNamed('/stats'),
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: ElevatedButton.icon(
         onPressed: () => Get.toNamed('/add'),
-        child: const Icon(Icons.add),
+        icon: const Icon(Icons.add),
+        label: const Text("Add Expense"),
       ),
       body: ResponsiveContainer(
         child: Obx(
           () => ListView(
-            children: controller.categories
-                .map(
-                  (c) => ListTile(
-                    title: Text(c),
-                    onTap: () => Get.toNamed('/category/$c'),
-                  ),
-                )
-                .toList(),
+            children: controller.categories.map((c) {
+              final spent = controller.totalForCategory(c);
+              final limit = controller.limitForCategory(c);
+              final exceeded = controller.exceeded(c);
+
+              return ListTile(
+                title: Text(c),
+                subtitle: limit > 0
+                    ? Text("${spent.toStringAsFixed(2)} / $limit €")
+                    : const Text("No limit"),
+                tileColor: exceeded ? Colors.red.withOpacity(0.2) : null,
+                trailing: const Icon(Icons.arrow_forward),
+                onTap: () => Get.toNamed('/category/${Uri.encodeComponent(c)}'),
+              );
+            }).toList(),
           ),
         ),
       ),
