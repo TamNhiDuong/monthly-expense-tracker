@@ -50,15 +50,28 @@ class CategoryScreen extends StatelessWidget {
                     subtitle: Text(
                       "${e.date.day}/${e.date.month}/${e.date.year}",
                     ),
-                    trailing: Text("€${e.amount.toStringAsFixed(2)}"),
-                    onLongPress: () {
-                      controller.deleteExpense(controller.expenses.indexOf(e));
-                      Get.snackbar(
-                        "Deleted",
-                        "Expense '${e.title}' removed",
-                        snackPosition: SnackPosition.BOTTOM,
-                      );
-                    },
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text("€${e.amount.toStringAsFixed(2)}"),
+                        const SizedBox(width: 8),
+                        IconButton(
+                          icon: const Icon(Icons.delete_outline),
+                          color: Colors.red,
+                          onPressed: () {
+                            controller.deleteExpense(
+                              controller.expenses.indexOf(e),
+                            );
+
+                            Get.snackbar(
+                              "Deleted",
+                              "Expense '${e.title}' removed",
+                              snackPosition: SnackPosition.BOTTOM,
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   );
                 },
               ),

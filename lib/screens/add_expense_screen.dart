@@ -36,7 +36,7 @@ class AddExpenseScreen extends StatelessWidget {
 
             const SizedBox(height: 12),
 
-            /// CATEGORY DROPDOWN
+            // CATEGORY DROPDOWN
             Obx(
               () => DropdownButtonFormField<String>(
                 value: selectedCategory.value,
@@ -74,7 +74,7 @@ class AddExpenseScreen extends StatelessWidget {
                   selectedCategory.value,
                 );
 
-                /// warning if exceeded
+                // warning if exceeded
                 if (controller.exceeded(selectedCategory.value)) {
                   Get.snackbar(
                     "Warning",
