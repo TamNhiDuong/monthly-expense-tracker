@@ -29,6 +29,22 @@ class MyApp extends StatelessWidget {
       title: "Monthly Expense Tracker",
       initialRoute: '/',
       getPages: AppRouter.routes,
+      theme: ThemeData(
+        useMaterial3: true,
+
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

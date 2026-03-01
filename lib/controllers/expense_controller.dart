@@ -35,6 +35,9 @@ class ExpenseController extends GetxController {
   List<String> get categories =>
       expenses.map((e) => e.category).toSet().toList();
 
+  // All categories (from predefined limits)
+  List<String> get allCategories => categoryLimits.map((c) => c.name).toList();
+
   List<Expense> byCategory(String category) {
     return expenses.where((e) => e.category == category).toList();
   }

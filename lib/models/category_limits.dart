@@ -6,18 +6,16 @@ class CategoryLimit {
 }
 
 const List<CategoryLimit> categoryLimits = [
-  CategoryLimit("Food", 200),
+  CategoryLimit("Food", 300),
   CategoryLimit("Groceries", 50),
   CategoryLimit("Eating out", 50),
-  CategoryLimit("Mortgage", 550),
+  CategoryLimit("Housing", 1000),
   CategoryLimit("Transport", 50),
-  CategoryLimit("Beauty", 50),
-  CategoryLimit("Clothes", 0),
-  CategoryLimit("Study", 0),
+  CategoryLimit("Wellbeings", 50),
+  CategoryLimit("Study", 100),
   CategoryLimit("Children", 100),
   CategoryLimit("Insurance", 45),
   CategoryLimit("Charity", 100),
-  CategoryLimit("Hoitovastike", 405),
-  CategoryLimit("Health", 0),
-  CategoryLimit("Entertainment", 0),
+  CategoryLimit("Health", 100),
+  CategoryLimit("Entertainment", 50),
 ];

@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
       body: ResponsiveContainer(
         child: Obx(
           () => ListView(
-            children: controller.categories.map((c) {
+            children: controller.allCategories.map((c) {
               final spent = controller.totalForCategory(c);
               final limit = controller.limitForCategory(c);
               final exceeded = controller.exceeded(c);
