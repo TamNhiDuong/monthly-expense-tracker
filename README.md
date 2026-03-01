@@ -1,17 +1,18 @@
-# monthly_expense_tracker
+# Deployed at: https://tamnhiduong.github.io/monthly-expense-tracker/
 
-A new Flutter project.
+## To run it locally:
+```sh
+flutter run -d chrome
+```
 
-## Getting Started
+### Description
+This app allows users to record and categorize monthly expenses using predefined categories.
 
-This project is a starting point for a Flutter application.
+Each category has a spending limit. When the total expenses exceed the limit, the category is highlighted in red.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### How to use
+- Click the floating action button at the bottom right to add a new expense.
+- Fill in the form and save. Data is stored locally using Hive.
+- The home page shows all categories.
+- Click a category to view all expenses belonging to it.
+- Click on the statistic top right icon button to view the statistics.
